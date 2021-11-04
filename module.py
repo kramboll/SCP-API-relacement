@@ -12,10 +12,8 @@ def get_images(url):
 	return images
 
 
-def get_texts(url, adult):
+def get_texts(url):
 	global output
-	if adult:
-		url = url[:len('https://scp-wiki.wikidot.com/')] + "adult:" +  url[len('https://scp-wiki.wikidot.com/'):] + "/noredirect/true"
 	html = urlopen(url).read()
 	soup = BeautifulSoup(html, features="html.parser")
 	for script in soup(["script", "style"]):
@@ -32,7 +30,7 @@ def get_texts(url, adult):
 
 
 def get_data(url_arg):
-	get_texts(url_arg, False)
+	get_texts(url_arg)
 
 	sideimgs = get_images('https://scp-wiki.wikidot.com/scp-096')
 
