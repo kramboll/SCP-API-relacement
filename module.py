@@ -1,5 +1,6 @@
 """
 Made by kramboll - 4th November 2021
+Version 1.0
 """
 
 from urllib.request import urlopen
